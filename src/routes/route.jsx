@@ -14,8 +14,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import MainLayout from "../layouts/MainLayout";
 import AboutUs from "../pages/AboutUs";
 import Forgot from "../pages/auth/Forgot";
+import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
-import Login from "../pages/auth/login";
 import Blog from "../pages/blog/Blog";
 import Home from "../pages/home/Home";
 
