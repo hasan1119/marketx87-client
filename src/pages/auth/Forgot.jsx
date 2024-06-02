@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CreatePassword from "../../components/auth/CreatePassword";
 import ForgotFrom from "../../components/auth/ForgotForm";
 import ForgotOTPFrom from "../../components/auth/ForgotOTPForm";
-import CreatePassword from "../../components/auth/createPassword";
 
 const Forgot = () => {
   // Steps
