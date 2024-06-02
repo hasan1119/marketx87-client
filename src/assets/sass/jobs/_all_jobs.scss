@@ -1,0 +1,24 @@
+.all_jobs {
+  .section_title {
+    position: relative;
+    padding-left: 25px;
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 10px;
+      background: $primary-500;
+      position: absolute;
+      left: 0;
+    }
+    // &::after {
+    //   content: '';
+    //   height: 10px;
+    //   width: 66px;
+    //   background: $primary-500;
+    //   position: absolute;
+    //   bottom: -10px;
+    //   left: 0;
+    // }
+  }
+}

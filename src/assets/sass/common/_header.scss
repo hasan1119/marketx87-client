@@ -1,0 +1,67 @@
+//====================================
+// Header styles
+//==================================//
+.header {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: #fff !important;
+  .navbar_main {
+    display: flex;
+    align-items: center;
+    .nav_item {
+      font-weight: 500;
+    }
+
+    .nav_menu_item {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-right: 10px;
+      position: relative;
+      &:hover {
+        color: $primary-500;
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        width: 0%;
+        height: 1.5px;
+        background-color: $primary-500;
+        left: 0;
+        bottom: -3px;
+        transition: 0.3s ease-in-out;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+    .user_photo {
+      font-size: 40px;
+    }
+
+    //====================================
+    // Nav menu styles for tablet device
+    //==================================//
+    @media screen and (max-width: 992px) {
+      align-items: flex-start;
+      .nav_item {
+        width: 100%;
+        border-bottom: 2px solid $primary-50;
+        transition: 0.3s;
+        padding: 12px 0;
+        margin-bottom: 12px;
+        button {
+          width: 100%;
+        }
+      }
+      .non_bordered_item {
+        border-bottom: none;
+        &:hover {
+          border-bottom: none;
+        }
+      }
+      .dropdown {
+        padding: 0;
+      }
+    }
+  }
+}

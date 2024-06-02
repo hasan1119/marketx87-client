@@ -1,0 +1,47 @@
+#banner {
+  min-height: calc(100vh - 72px);
+  background-color: $gray-20;
+  background: linear-gradient(to top, $primary-200 0%, $gray-20 100%);
+
+  .banner_container {
+    .banner_content {
+      .banner_slogan {
+        font-size: 3.4vw;
+        // font-weight: 300;
+        // text-transform: uppercase;
+        // letter-spacing: 3px;
+        // line-height: 4.5vw;
+      }
+      @media (max-width: 768px) {
+        .banner_slogan {
+          font-size: 30px;
+        }
+      }
+      @media (max-width: 576px) {
+        .banner_slogan {
+          font-size: 24px;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+    .banner_image {
+      display: flex;
+      justify-content: end;
+      img {
+        width: 100%;
+        max-width: 490px !important;
+      }
+    }
+  }
+  //   @media (max-width: 768px) {
+  //     min-height: auto;
+  //     padding: 100px 0;
+  //   }
+  //   @media (max-width: 576px) {
+  //     min-height: auto;
+  //     padding: 50px 0;
+  //   }
+}

@@ -1,0 +1,30 @@
+.find_job {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+    url('../../src/assets/images/search.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .search_input_box {
+    max-width: 599px;
+    margin: auto;
+    position: relative;
+    input {
+      padding-left: 42px;
+      font-size: 20px;
+    }
+    .search_icon {
+      position: absolute;
+      left: 10px;
+      z-index: 111;
+      line-height: 48px;
+      svg {
+        font-size: 24px;
+      }
+    }
+  }
+}

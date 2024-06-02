@@ -1,0 +1,33 @@
+// Common
+@import './common/variables';
+@import './common/common';
+@import './common/header';
+@import './common/footer';
+
+// layouts
+@import './main_layout';
+
+// Auth
+@import './auth/auth';
+@import './auth/forgot';
+@import './auth/register';
+@import './auth/login';
+
+// banner
+@import './banner/banner';
+
+// all jobs
+@import './jobs/all_jobs';
+@import './jobs/single_job';
+@import './jobs/job_details';
+@import './jobs/find_job';
+
+// dashboard
+@import './dashboard/dashboard';
+@import './dashboard/profile';
+@import './dashboard/address';
+@import './dashboard/education';
+@import './dashboard/job_report.scss';
+@import './dashboard/_users.scss';
+@import './dashboard/job_reports';
+@import './dashboard/blog';

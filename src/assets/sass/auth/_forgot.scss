@@ -1,0 +1,31 @@
+#forgot {
+  width: 100%;
+
+  .forgot_container {
+    padding: 29px 39px;
+    background-color: rgba(0, 0, 0, 0.181);
+    max-width: 499px;
+    margin: auto;
+
+    .title {
+      color: $text-gray-500;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    input {
+      border-radius: 2px;
+    }
+    label,
+    .sub_title {
+      color: $text-gray-100;
+    }
+    a {
+      color: blueviolet;
+    }
+    button[type='submit'] {
+      background-color: $primary-500;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+  }
+}

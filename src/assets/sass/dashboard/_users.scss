@@ -1,0 +1,18 @@
+.users {
+  width: 100%;
+  background-color: #fff !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  .search_input {
+    position: relative;
+    input {
+      padding-left: 33px;
+    }
+    .search_icon {
+      position: absolute;
+      top: 50%;
+      left: 22px;
+      transform: translateY(-50%);
+    }
+  }
+}
