@@ -8,12 +8,12 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api/v1": {
-        target: "https://api.marketx87.com",
+        target: "http://localhost:8000",
         changeOrigin: true,
         secure: false,
       },
       "/files": {
-        target: "https://api.marketx87.com",
+        target: "http://localhost:8000",
         changeOrigin: true,
         secure: false,
       },
