@@ -10,7 +10,7 @@ const Header = () => {
   const { logout } = useContexts();
   const { userInfo } = useContexts();
   return (
-    <header className="header">
+    <header className="header" style={{ position: "relative", zIndex: 100 }}>
       <Navbar expand="lg" className="bg-body-tertiaryy ">
         <Container>
           <Navbar.Brand as={Link} to="/">
