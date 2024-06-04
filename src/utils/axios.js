@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 // const jsonString = JSON.stringify(device);
 const axiosClient = axios.create({
-    baseURL: `/api/v1`,
+  baseURL: `https://api.marketx87.com/api/v1`,
 });
 
 // axiosClient.interceptors.request.use(async (config) => {
