@@ -67,7 +67,7 @@ const Header = () => {
                           height: "40px",
                           borderRadius: "50px",
                         }}
-                        src={`/files/profile/${userInfo.avatar}`}
+                        src={`https://api.marketx87.com/files/profile/${userInfo.avatar}`}
                       />
                     ) : (
                       <HiOutlineUserCircle className="user_photo" />

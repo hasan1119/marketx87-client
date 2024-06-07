@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import axiosClient from '../../utils/axios';
+import { useEffect, useState } from "react";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import axiosClient from "../../utils/axios";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const JobDetails = () => {
           setJob(data);
         })
         .catch((err) => {
-          navigate('/');
+          navigate("/");
         });
     }
   }, [id]);
@@ -46,7 +46,7 @@ const JobDetails = () => {
                 className=""
                 src={
                   avatar
-                    ? `/files/profile/${avatar}`
+                    ? `https://api.marketx87.com/files/profile/${avatar}`
                     : `/src/assets/images/profile-img.svg`
                 }
               />

@@ -1,5 +1,5 @@
-import { Button, Card, Col, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Card, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SingleJob = (props) => {
   const {
@@ -28,16 +28,16 @@ const SingleJob = (props) => {
             <div
               className="border me-3 mb-3"
               style={{
-                width: '66px',
-                height: '66px',
-                borderRadius: '50%',
-                overflow: 'hidden',
+                width: "66px",
+                height: "66px",
+                borderRadius: "50%",
+                overflow: "hidden",
               }}
             >
               <Image
                 src={
                   avatar
-                    ? `/files/profile/${avatar}`
+                    ? `https://api.marketx87.com/files/profile/${avatar}`
                     : `/src/assets/images/profile-img.svg`
                 }
                 alt=""
