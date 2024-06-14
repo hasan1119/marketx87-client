@@ -33,7 +33,7 @@ const TopNav = () => {
                     src={
                       avatar
                         ? `https://api.marketx87.com/files/profile/${avatar}`
-                        : "/src/assets/images/profile-img.svg"
+                        : "/images/profile-img.svg"
                     }
                     alt="Profile Icon"
                   />

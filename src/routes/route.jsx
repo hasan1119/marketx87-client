@@ -2,13 +2,16 @@ import { createBrowserRouter } from "react-router-dom";
 import CheckLogin from "../components/common/CheckLogin";
 import ComingSoon from "../components/common/ComingSoon";
 import PrivateRoute from "../components/common/PrivateRoute";
+import ActivationNotice from "../components/dashboard/ActivationNotice";
 import Address from "../components/dashboard/dashboardContent/Address";
 import CreateBlog from "../components/dashboard/dashboardContent/CreateBlog";
 import Education from "../components/dashboard/dashboardContent/Education";
 import JobReport from "../components/dashboard/dashboardContent/JobReport";
 import JobReports from "../components/dashboard/dashboardContent/JobReports";
 import Profile from "../components/dashboard/dashboardContent/Profile";
+import Transitions from "../components/dashboard/dashboardContent/Transitions";
 import Users from "../components/dashboard/dashboardContent/Users";
+import WaitForVerification from "../components/dashboard/WaitForVerification";
 import JobDetails from "../components/jobs/JobDetails";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MainLayout from "../layouts/MainLayout";
@@ -32,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "activation-notice",
+        element: <ActivationNotice />,
+      },
+      {
+        path: "wait-for-verification",
+        element: <WaitForVerification />,
       },
       {
         path: "login",
@@ -105,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "transitions",
+        element: <Transitions />,
       },
       {
         path: "job-reports",

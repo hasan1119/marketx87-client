@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import useContexts from "../../../hooks/useContexts";
 import axiosClient from "../../../utils/axios";
 import LoadingSpinner from "../../common/LoadingSpinner";
+import PasswordVector from "/src/assets/images/password.svg";
 
 const Profile = () => {
   //   const { firstName, lastName, email, avatar } = user;
@@ -193,7 +194,7 @@ const Profile = () => {
                     src={
                       avatar
                         ? `https://api.marketx87.com/files/profile/${avatar}`
-                        : `/src/assets/images/profile-img.svg`
+                        : `/images/profile-img.svg`
                     }
                     alt="Logo"
                     ref={imgRef}
@@ -252,7 +253,7 @@ const Profile = () => {
                   src={
                     avatar
                       ? `https://api.marketx87.com/files/profile/${avatar}`
-                      : `/src/assets/images/profile-img.svg`
+                      : `/images/profile-img.svg`
                   }
                   alt="Logo"
                   ref={imgRef}
@@ -409,8 +410,8 @@ const Profile = () => {
               <div className="form_box">
                 <img
                   style={{ width: "265px", margin: "", border: "0" }}
-                  src="/src/assets/images/password.svg"
-                  alt="Logo"
+                  src={PasswordVector}
+                  alt="Img"
                 />
                 <form onSubmit={passwordUpdateHandler} className="row g-3">
                   <div className="col-md-12">

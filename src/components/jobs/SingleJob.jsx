@@ -38,7 +38,7 @@ const SingleJob = (props) => {
                 src={
                   avatar
                     ? `https://api.marketx87.com/files/profile/${avatar}`
-                    : `/src/assets/images/profile-img.svg`
+                    : `/images/profile-img.svg`
                 }
                 alt=""
                 className="w-100"

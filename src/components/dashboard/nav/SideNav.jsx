@@ -31,21 +31,26 @@ const SideNav = () => {
             name: "My Profile",
             icon: <BsPersonCircle />,
           },
-          {
-            path: "/dashboard/address",
-            name: "Address",
-            icon: <ImLocation2 />,
-          },
-          {
-            path: "/dashboard/education",
-            name: "Education",
-            icon: <FaBook />,
-          },
+          // {
+          //   path: "/dashboard/address",
+          //   name: "Address",
+          //   icon: <ImLocation2 />,
+          // },
+          // {
+          //   path: "/dashboard/education",
+          //   name: "Education",
+          //   icon: <FaBook />,
+          // },
           {
             path: "/dashboard/users",
             name: "Users",
             icon: <FiUsers />,
           },
+          // {
+          //   path: "/dashboard/transitions",
+          //   name: "Transitions",
+          //   icon: <FaMoneyBillTransfer />,
+          // },
           {
             path: "/dashboard/create-blog",
             name: "Create Blog",

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Image, Table } from "react-bootstrap";
-import { AiFillEdit, AiTwotoneDelete } from "react-icons/ai";
+import { Image, Table } from "react-bootstrap";
 
 import axiosClient from "../../../utils/axios";
 
@@ -17,6 +16,29 @@ export default function Users() {
         console.log(responsive);
       });
   }, []);
+
+  const changeStatus = (e, id) => {
+    const status = e.target.value;
+    axiosClient
+      .put("/admin/change-user-status", { status, userId: id })
+      .then(({ data }) => {
+        const newUsers = users.map((user) => {
+          if (user._id === data._id) return data;
+          return user;
+        });
+        setUsers(newUsers);
+      })
+      .catch(({ responsive }) => {
+        console.log(responsive);
+      });
+  };
+
+  console.log(
+    users[0]?.transitions?.find(
+      (transition) => transition.type === "Activation"
+    )?.transition.account
+  );
+
   return (
     <div className="users m-5 mx-auto container">
       <div className="row pt-5 d-flex justify-content-between align-items-center  mb-4 ">
@@ -52,58 +74,79 @@ export default function Users() {
             <th>Role</th>
             <th>Mobile</th>
             <th>Email</th>
-            <th>Gender</th>
-            <th>Status</th>
-            <th className="text-center">Actions</th>
+            <th className="text-center">
+              Activation
+              <br />
+              <small>AC/Trans/Amout</small>
+            </th>
+            {/* <th>Gender</th> */}
+            <th className="d-block" style={{ minWidth: "110px" }}>
+              Status
+            </th>
+            {/* <th className="text-center">Actions</th> */}
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
-            <tr key={user._id} className="">
-              <td>{index + 1}</td>
-              <td>
-                <span>
-                  <Image
-                    className="border p-1 me-2"
-                    src={
-                      user.avatar
-                        ? `https://api.marketx87.com/files/profile/${user.avatar}`
-                        : `/src/assets/images/profile-img.svg`
-                    }
-                    roundedCircle
-                    height={50}
-                    width={50}
-                    style={{ objectFit: "cover" }}
-                    alt=""
-                  />
-                </span>
-                {user.firstName + " " + user.lastName}
-              </td>
+          {users.map((user, index) => {
+            const transition = user?.transitions?.find(
+              (transition) => transition.type === "Activation"
+            )?.transition;
+            return (
+              <tr key={user._id} className="">
+                <td>{index + 1}</td>
+                <td>
+                  <span>
+                    <Image
+                      className="border p-1 me-2"
+                      src={
+                        user.avatar
+                          ? `https://api.marketx87.com/files/profile/${user.avatar}`
+                          : `/images/profile-img.svg`
+                      }
+                      roundedCircle
+                      height={50}
+                      width={50}
+                      style={{ objectFit: "cover" }}
+                      alt=""
+                    />
+                  </span>
+                  {user.firstName + " " + user.lastName}
+                </td>
 
-              <td className="">{user.role ? user.role.join(", ") : "N/A"}</td>
-              <td>{user.phone}</td>
-              <td>{user.email}</td>
-              <td>{user.gender}</td>
-              <td>
-                <select
-                  defaultValue={user.status}
-                  name="status"
-                  className="form-control"
-                >
-                  <option value="active">Active</option>
-                  <option value="blocked">Blocked</option>
-                </select>
-              </td>
-              <td className="text-center">
-                <Button variant="dark" className="mb-1 mb-lg-0 me-lg-2">
-                  <AiFillEdit />
-                </Button>
-                <Button variant="dark">
-                  <AiTwotoneDelete />
-                </Button>
-              </td>
-            </tr>
-          ))}
+                <td className="">{user.role ? user.role.join(", ") : "N/A"}</td>
+                <td>{user.phone}</td>
+                <td>{user.email}</td>
+                <td className="text-center">
+                  {transition?._id
+                    ? `${transition.account} / ${transition.trans} / ${transition.amount}`
+                    : `- / - / -`}
+                </td>
+                {/* <td>{user.gender}</td> */}
+                <td>
+                  <select
+                    onChange={(e) => changeStatus(e, user._id)}
+                    defaultValue={user.status}
+                    name="status"
+                    className="form-control"
+                  >
+                    <option value="Pending">Pending</option>
+                    <option value="Awaiting">Awaiting</option>
+                    <option value="Active">Active</option>
+                    <option value="Suspended">Suspended</option>
+                    <option value="Blocked">Blocked</option>
+                  </select>
+                </td>
+                {/* <td className="text-center">
+                  <Button variant="dark" className="mb-1 mb-lg-0 me-lg-2">
+                    <AiFillEdit />
+                  </Button>
+                  <Button variant="dark">
+                    <AiTwotoneDelete />
+                  </Button>
+                </td> */}
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
       {/* <p className="text-center">Showing 5 out of 50</p> */}
