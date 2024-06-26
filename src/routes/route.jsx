@@ -5,11 +5,21 @@ import PrivateRoute from "../components/common/PrivateRoute";
 import ActivationNotice from "../components/dashboard/ActivationNotice";
 import Address from "../components/dashboard/dashboardContent/Address";
 import CreateBlog from "../components/dashboard/dashboardContent/CreateBlog";
+import CreateJob from "../components/dashboard/dashboardContent/CreateJob";
 import Education from "../components/dashboard/dashboardContent/Education";
+import Job from "../components/dashboard/dashboardContent/job";
 import JobReport from "../components/dashboard/dashboardContent/JobReport";
 import JobReports from "../components/dashboard/dashboardContent/JobReports";
+import Jobs from "../components/dashboard/dashboardContent/Jobs";
+import AllJobs from "../components/dashboard/dashboardContent/my-jobs/AllJobs";
+import AvailableJobs from "../components/dashboard/dashboardContent/my-jobs/AvailableJobs";
+import CompletedJobs from "../components/dashboard/dashboardContent/my-jobs/CompletedJobs";
+import PendingJobs from "../components/dashboard/dashboardContent/my-jobs/PendingJobs";
+import MyJobs from "../components/dashboard/dashboardContent/MyJobs";
+import Overview from "../components/dashboard/dashboardContent/Overview";
 import Profile from "../components/dashboard/dashboardContent/Profile";
 import Transitions from "../components/dashboard/dashboardContent/Transitions";
+import UpdateJob from "../components/dashboard/dashboardContent/UpdateJob";
 import Users from "../components/dashboard/dashboardContent/Users";
 import WaitForVerification from "../components/dashboard/WaitForVerification";
 import JobDetails from "../components/jobs/JobDetails";
@@ -25,7 +35,6 @@ import Home from "../pages/home/Home";
 const router = createBrowserRouter([
   {
     path: "/",
-    // errorElement: <PageNotFound />,
     element: <MainLayout />,
     children: [
       {
@@ -89,11 +98,10 @@ const router = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoute>
     ),
-    // errorElement: <PageNotFound />,
     children: [
       {
-        path: "/dashboard",
-        element: <Profile />,
+        path: "",
+        element: <Overview />,
       },
       {
         path: "my-profile",
@@ -103,12 +111,10 @@ const router = createBrowserRouter([
         path: "address",
         element: <Address />,
       },
-
       {
         path: "education",
         element: <Education />,
       },
-
       {
         path: "job-report",
         element: <JobReport />,
@@ -116,6 +122,22 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "create-job",
+        element: <CreateJob />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs />,
+      },
+      {
+        path: "jobs/:jobId",
+        element: <Job />,
+      },
+      {
+        path: "jobs/update/:jobId",
+        element: <UpdateJob />,
       },
       {
         path: "transitions",
@@ -131,7 +153,25 @@ const router = createBrowserRouter([
       },
       {
         path: "my-jobs",
-        element: <ComingSoon />,
+        element: <MyJobs />,
+        children: [
+          {
+            path: "all", // Changed from "/" to "" to indicate the default nested route
+            element: <AllJobs />,
+          },
+          {
+            path: "available",
+            element: <AvailableJobs />,
+          },
+          {
+            path: "pending",
+            element: <PendingJobs />,
+          },
+          {
+            path: "completed",
+            element: <CompletedJobs />,
+          },
+        ],
       },
       {
         path: "withdraws",

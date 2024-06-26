@@ -100,7 +100,7 @@ export default function Users() {
                       className="border p-1 me-2"
                       src={
                         user.avatar
-                          ? `https://api.marketx87.com/files/profile/${user.avatar}`
+                          ? `/files/profile/${user.avatar}`
                           : `/images/profile-img.svg`
                       }
                       roundedCircle

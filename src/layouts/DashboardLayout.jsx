@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Navigate, Outlet } from "react-router-dom";
 import SideNav from "../components/dashboard/nav/SideNav";
 import TopNav from "../components/dashboard/nav/TopNav";

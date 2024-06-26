@@ -500,6 +500,11 @@ button {
   overflow: auto;
 }
 
+.my_job_tab_active {
+  font-weight: bold;
+  color: red;
+}
+
 .side_nav {
   max-width: 280px;
   width: 100%;

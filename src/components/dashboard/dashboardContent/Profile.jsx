@@ -193,7 +193,7 @@ const Profile = () => {
                   <img
                     src={
                       avatar
-                        ? `https://api.marketx87.com/files/profile/${avatar}`
+                        ? `/files/profile/${avatar}`
                         : `/images/profile-img.svg`
                     }
                     alt="Logo"
@@ -247,12 +247,12 @@ const Profile = () => {
                 <img
                   // src={
                   //   avatar
-                  //     ? `https://api.marketx87.com/files/thumb/profile/${avatar}`
+                  //     ? `/files/thumb/profile/${avatar}`
                   //     : '/logo/profile-img.svg'
                   // }
                   src={
                     avatar
-                      ? `https://api.marketx87.com/files/profile/${avatar}`
+                      ? `/files/profile/${avatar}`
                       : `/images/profile-img.svg`
                   }
                   alt="Logo"

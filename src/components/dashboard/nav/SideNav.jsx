@@ -13,6 +13,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FiUsers } from "react-icons/fi";
 import { ImLocation2 } from "react-icons/im";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoBookSharp } from "react-icons/io5";
 import { MdOutlinePayment, MdOutlinePreview } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
@@ -26,6 +27,11 @@ const SideNav = () => {
   const studentMenus =
     userInfo && userInfo.role && userInfo.role.includes("Admin")
       ? [
+          {
+            path: "/dashboard/overview",
+            name: "Overview",
+            icon: <IoBookSharp />,
+          },
           {
             path: "/dashboard/my-profile",
             name: "My Profile",
@@ -56,8 +62,23 @@ const SideNav = () => {
             name: "Create Blog",
             icon: <BiLogoBlogger />,
           },
+          {
+            path: "/dashboard/create-job",
+            name: "Create Job",
+            icon: <FaBriefcase />,
+          },
+          {
+            path: "/dashboard/jobs",
+            name: "Jobs",
+            icon: <FaBriefcase />,
+          },
         ]
       : [
+          {
+            path: "/dashboard",
+            name: "Overview",
+            icon: <IoBookSharp />,
+          },
           {
             path: "/dashboard/my-profile",
             name: "My Profile",
@@ -74,7 +95,7 @@ const SideNav = () => {
             icon: <FaBook />,
           },
           {
-            path: "/dashboard/my-jobs",
+            path: "/dashboard/my-jobs/all",
             name: "My Jobs",
             icon: <FaBriefcase />,
           },

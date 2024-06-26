@@ -25,14 +25,14 @@ const TopNav = () => {
                   <img
                     // src={
                     //   user.avatar
-                    //     ? `https://api.marketx87.com/files/thumb/profile/${user.avatar}`
+                    //     ? `/files/thumb/profile/${user.avatar}`
                     //     : "/logo/profile-img.svg"
                     // }
                     // alt="Profile Icon"
 
                     src={
                       avatar
-                        ? `https://api.marketx87.com/files/profile/${avatar}`
+                        ? `/files/profile/${avatar}`
                         : "/images/profile-img.svg"
                     }
                     alt="Profile Icon"
