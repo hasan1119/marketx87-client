@@ -902,4 +902,21 @@ button {
 .blog .jodit-add-new-line,
 .blog .jodit-add-new-line_after {
   display: none;
+}
+
+.pendingBalanceBG {
+  background-image: radial-gradient(circle 763px at 18.3% 24.1%, rgb(255, 249, 137) 7.4%, rgb(226, 183, 40) 58.3%);
+}
+
+.availableBalanceBG {
+  background-image: linear-gradient(107deg, rgb(13, 198, 180) 8.1%, rgb(33, 198, 138) 79.5%);
+}
+
+.history .col {
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.allJobs .progress-bar {
+  background-image: linear-gradient(107deg, rgb(13, 198, 180) 8.1%, rgb(33, 198, 138) 79.5%);
 }/*# sourceMappingURL=main.min.css.map */
