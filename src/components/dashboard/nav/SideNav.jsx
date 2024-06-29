@@ -27,114 +27,114 @@ const SideNav = () => {
   const studentMenus =
     userInfo && userInfo.role && userInfo.role.includes("Admin")
       ? [
-          {
-            path: "/dashboard/overview",
-            name: "Overview",
-            icon: <IoBookSharp />,
-          },
-          {
-            path: "/dashboard/my-profile",
-            name: "My Profile",
-            icon: <BsPersonCircle />,
-          },
-          // {
-          //   path: "/dashboard/address",
-          //   name: "Address",
-          //   icon: <ImLocation2 />,
-          // },
-          // {
-          //   path: "/dashboard/education",
-          //   name: "Education",
-          //   icon: <FaBook />,
-          // },
-          {
-            path: "/dashboard/users",
-            name: "Users",
-            icon: <FiUsers />,
-          },
-          // {
-          //   path: "/dashboard/transitions",
-          //   name: "Transitions",
-          //   icon: <FaMoneyBillTransfer />,
-          // },
-          {
-            path: "/dashboard/create-blog",
-            name: "Create Blog",
-            icon: <BiLogoBlogger />,
-          },
-          {
-            path: "/dashboard/create-job",
-            name: "Create Job",
-            icon: <FaBriefcase />,
-          },
-          {
-            path: "/dashboard/jobs",
-            name: "Jobs",
-            icon: <FaBriefcase />,
-          },
-        ]
+        {
+          path: "/dashboard/overview",
+          name: "Overview",
+          icon: <IoBookSharp />,
+        },
+        {
+          path: "/dashboard/my-profile",
+          name: "My Profile",
+          icon: <BsPersonCircle />,
+        },
+        // {
+        //   path: "/dashboard/address",
+        //   name: "Address",
+        //   icon: <ImLocation2 />,
+        // },
+        // {
+        //   path: "/dashboard/education",
+        //   name: "Education",
+        //   icon: <FaBook />,
+        // },
+        {
+          path: "/dashboard/users",
+          name: "Users",
+          icon: <FiUsers />,
+        },
+        // {
+        //   path: "/dashboard/transitions",
+        //   name: "Transitions",
+        //   icon: <FaMoneyBillTransfer />,
+        // },
+        {
+          path: "/dashboard/create-blog",
+          name: "Create Blog",
+          icon: <BiLogoBlogger />,
+        },
+        {
+          path: "/dashboard/create-job",
+          name: "Create Job",
+          icon: <FaBriefcase />,
+        },
+        {
+          path: "/dashboard/jobs",
+          name: "Jobs",
+          icon: <FaBriefcase />,
+        },
+      ]
       : [
-          {
-            path: "/dashboard",
-            name: "Overview",
-            icon: <IoBookSharp />,
-          },
-          {
-            path: "/dashboard/my-profile",
-            name: "My Profile",
-            icon: <BsPersonCircle />,
-          },
-          {
-            path: "/dashboard/address",
-            name: "Address",
-            icon: <ImLocation2 />,
-          },
-          {
-            path: "/dashboard/education",
-            name: "Education",
-            icon: <FaBook />,
-          },
-          {
-            path: "/dashboard/my-jobs/all",
-            name: "My Jobs",
-            icon: <FaBriefcase />,
-          },
-          {
-            path: "/dashboard/withdraws",
-            name: "Withdraws",
-            icon: <RiBankCardFill />,
-          },
-          {
-            path: "/dashboard/my-wallet",
-            name: "My Wallet",
-            icon: <FaWallet />,
-          },
-          {
-            path: "/dashboard/lottery",
-            name: "Lottery",
-            icon: <FaRandom />,
-          },
-          {
-            path: "/dashboard/review-and-earn",
-            name: "Review And Earn",
-            icon: <MdOutlinePreview />,
-          },
-          {
-            path: "/dashboard/notice",
-            name: "Notice",
-            icon: <FaBell />,
-          },
-          {
-            path: "/dashboard/payments",
-            name: "Payments",
-            icon: <MdOutlinePayment />,
-          },
-          {
-            path: "/dashboard/orders",
-            name: "Orders",
-            icon: <FaCartShopping />,
-          },
-        ];
+        {
+          path: "/dashboard",
+          name: "Overview",
+          icon: <IoBookSharp />,
+        },
+        {
+          path: "/dashboard/my-profile",
+          name: "My Profile",
+          icon: <BsPersonCircle />,
+        },
+        {
+          path: "/dashboard/address",
+          name: "Address",
+          icon: <ImLocation2 />,
+        },
+        {
+          path: "/dashboard/education",
+          name: "Education",
+          icon: <FaBook />,
+        },
+        {
+          path: "/dashboard/my-jobs/all",
+          name: "My Jobs",
+          icon: <FaBriefcase />,
+        },
+        {
+          path: "/dashboard/withdraws/withdraw",
+          name: "Withdraws",
+          icon: <RiBankCardFill />,
+        },
+        {
+          path: "/dashboard/my-wallet",
+          name: "My Wallet",
+          icon: <FaWallet />,
+        },
+        {
+          path: "/dashboard/lottery",
+          name: "Lottery",
+          icon: <FaRandom />,
+        },
+        {
+          path: "/dashboard/review-and-earn",
+          name: "Review And Earn",
+          icon: <MdOutlinePreview />,
+        },
+        {
+          path: "/dashboard/notice",
+          name: "Notice",
+          icon: <FaBell />,
+        },
+        {
+          path: "/dashboard/payments",
+          name: "Payments",
+          icon: <MdOutlinePayment />,
+        },
+        {
+          path: "/dashboard/orders",
+          name: "Orders",
+          icon: <FaCartShopping />,
+        },
+      ];
 
   const menuItems = studentMenus;
 
