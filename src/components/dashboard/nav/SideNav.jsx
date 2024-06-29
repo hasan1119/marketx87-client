@@ -105,7 +105,7 @@ const SideNav = () => {
             icon: <FaBriefcase />,
           },
           {
-            path: "/dashboard/withdraws",
+            path: "/dashboard/withdraws/withdraw",
             name: "Withdraws",
             icon: <RiBankCardFill />,
           },

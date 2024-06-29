@@ -32,6 +32,9 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Blog from "../pages/blog/Blog";
 import Home from "../pages/home/Home";
+import Withdraws from "../components/dashboard/dashboardContent/Withdraws";
+import Withdraw from "../components/dashboard/dashboardContent/Withdraw";
+import WithdrawList from "../components/dashboard/dashboardContent/WithdrawList";
 
 const router = createBrowserRouter([
   {
@@ -176,7 +179,18 @@ const router = createBrowserRouter([
       },
       {
         path: "withdraws",
-        element: <ComingSoon />,
+        element: <Withdraws />,
+        children: [
+          {
+            path: "withdraw", // Changed from "/" to "" to indicate the default nested route
+            element: <Withdraw />,
+          },
+          {
+            path: "withdraws-list",
+            element: <WithdrawList />,
+          },
+
+        ],
       },
       {
         path: "my-wallet",

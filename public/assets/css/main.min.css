@@ -919,4 +919,66 @@ button {
 
 .allJobs .progress-bar {
   background-image: linear-gradient(107deg, rgb(13, 198, 180) 8.1%, rgb(33, 198, 138) 79.5%);
+}
+
+.custom-radio {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.custom-radio-input {
+  display: none;
+}
+
+.custom-radio-label {
+  display: inline-block;
+  width: 100px;
+  /* Adjust size as needed */
+  height: 100px;
+  /* Adjust size as needed */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.custom-radio-input:checked + .custom-radio-label.bkash {
+  background-image: url(./../../images/bKash_logo.png);
+}
+
+.custom-radio-label.bkash {
+  background-image: url(./../../images/bKash_logo-bw.png);
+}
+
+.custom-radio-input:checked + .custom-radio-label.nagad {
+  background-image: url(./../../images/Nagad_logo.png);
+}
+
+.custom-radio-label.nagad {
+  background-image: url(./../../images/Nagad_logo-bw.png);
+}
+
+.custom-radio-input:checked + .custom-radio-label.rocket {
+  background-image: url(./../../images/Rocket_logo.png);
+}
+
+.custom-radio-label.rocket {
+  background-image: url(./../../images/Rocket_logo-bw.png);
+}
+
+.error {
+  color: red;
+  font-size: 0.875em;
+}
+
+.uniform-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.uniform-table th,
+.uniform-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }/*# sourceMappingURL=main.min.css.map */
