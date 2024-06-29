@@ -27,11 +27,11 @@ const SideNav = () => {
   const studentMenus =
     userInfo && userInfo.role && userInfo.role.includes("Admin")
       ? [
-          {
-            path: "/dashboard/overview",
-            name: "Overview",
-            icon: <IoBookSharp />,
-          },
+          // {
+          //   path: "/dashboard/overview",
+          //   name: "Overview",
+          //   icon: <IoBookSharp />,
+          // },
           {
             path: "/dashboard/my-profile",
             name: "My Profile",
@@ -70,6 +70,11 @@ const SideNav = () => {
           {
             path: "/dashboard/jobs",
             name: "Jobs",
+            icon: <FaBriefcase />,
+          },
+          {
+            path: "/dashboard/job-review",
+            name: "Job Review",
             icon: <FaBriefcase />,
           },
         ]

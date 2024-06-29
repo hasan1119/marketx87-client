@@ -33,11 +33,11 @@ const MyJobs = () => {
             className={({ isActive, isPending }) =>
               isPending ? "" : isActive ? "my_job_tab_active" : ""
             }
-            to="/dashboard/my-jobs/pending"
+            to="/dashboard/my-jobs/awaiting"
             role="tab"
             data-toggle="tab"
           >
-            Pending
+            Awaiting
           </NavLink>
         </li>
         <li role="presentation">

@@ -38,7 +38,7 @@ const Job = () => {
       </div>
       <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
       {userInfo.role.includes("Admin") ||
-        job?.candidates?.includes(userInfo._id) || (
+        job?.records?.map(({ user }) => user)?.includes(userInfo._id) || (
           <div className="my-2">
             <h3>Submit task proof: </h3>
             <JoditEditor

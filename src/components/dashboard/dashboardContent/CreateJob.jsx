@@ -113,6 +113,8 @@ const CreateJob = () => {
                 className="form-control mb-4 col-2"
                 name="status"
                 id="status"
+                value={job.status}
+                onChange={(e) => setJob({ ...job, status: e.target.value })}
               >
                 <option value="hidden">Hidden</option>
                 <option value="active">Active</option>

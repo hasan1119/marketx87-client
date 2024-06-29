@@ -10,6 +10,7 @@ import Education from "../components/dashboard/dashboardContent/Education";
 import Job from "../components/dashboard/dashboardContent/job";
 import JobReport from "../components/dashboard/dashboardContent/JobReport";
 import JobReports from "../components/dashboard/dashboardContent/JobReports";
+import JobReview from "../components/dashboard/dashboardContent/JobReview";
 import Jobs from "../components/dashboard/dashboardContent/Jobs";
 import AllJobs from "../components/dashboard/dashboardContent/my-jobs/AllJobs";
 import AvailableJobs from "../components/dashboard/dashboardContent/my-jobs/AvailableJobs";
@@ -164,7 +165,7 @@ const router = createBrowserRouter([
             element: <AvailableJobs />,
           },
           {
-            path: "pending",
+            path: "awaiting",
             element: <PendingJobs />,
           },
           {
@@ -204,6 +205,10 @@ const router = createBrowserRouter([
       {
         path: "support-ticket",
         element: <ComingSoon />,
+      },
+      {
+        path: "job-review",
+        element: <JobReview />,
       },
     ],
   },
