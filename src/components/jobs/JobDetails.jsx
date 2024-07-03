@@ -46,7 +46,7 @@ const JobDetails = () => {
                 className=""
                 src={
                   avatar
-                    ? `/files/profile/${avatar}`
+                    ? `https://api.marketx87.com/files/profile/${avatar}`
                     : `/images/profile-img.svg`
                 }
               />
