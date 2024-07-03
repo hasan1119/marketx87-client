@@ -1,9 +1,9 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const MyJobs = () => {
   return (
     <div>
-      <ul className="nav nav-tabs d-flex gap-4 p-3" role="tablist">
+      {/* <ul className="nav nav-tabs d-flex gap-4 p-3" role="tablist">
         <li role="presentation" className="active">
           <NavLink
             to="/dashboard/my-jobs/all"
@@ -52,7 +52,7 @@ const MyJobs = () => {
             Completed
           </NavLink>
         </li>
-      </ul>
+      </ul> */}
       <div className="mx-3 my-2">
         <Outlet />
       </div>

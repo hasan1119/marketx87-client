@@ -6,21 +6,31 @@ import axiosClient from "../../../../utils/axios";
 
 const AllJobs = () => {
   const { userInfo } = useContexts();
+  const [loading, setLoading] = useState(false);
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
+    setLoading(true);
     axiosClient
       .get("/my_jobs")
       .then(({ data }) => {
         setJobs(data);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => setLoading(false));
   }, []);
 
-  console.log(jobs);
+  if (loading) {
+    return (
+      <div className="m-3">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    // <div className="ml-2 mt-2 p-5 w-100 rounded" style={{ maxWidth: "1200px" }}>
-    <div className="ml-2 mt-2 p-5 w-100 rounded allJobs">
+    <div className="ml-2 mt-2 p-1 w-100 rounded allJobs">
       {jobs?.map((job) => {
         const record = job?.records
           ?.map(({ record }) => record)
@@ -29,7 +39,6 @@ const AllJobs = () => {
         return (
           <div
             key={job._id}
-            // className="px-2 py-1"
             style={{
               background: "#fbf9ff",
               boxShadow: "inset 2px 0 0 #6a2af5",
@@ -75,7 +84,7 @@ const AllJobs = () => {
                 <div className="d-flex column-gap-3">
                   <span>Deadline: {job.time + "Days" || "N/A"}</span>
                   <span>Target: {job.limit || "N/A"}</span>
-                  <span>Budget: {job.limit + "TK" || "N/A"}</span>
+                  <span>Budget: {job.budget + "TK" || "N/A"}</span>
                 </div>
               </div>
               <div className="col d-flex align-items-center gap-2">
@@ -127,6 +136,11 @@ const AllJobs = () => {
           </div>
         );
       })}
+      {jobs.length === 0 ? (
+        <h4 className="text-danger my-2">No jobs available</h4>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

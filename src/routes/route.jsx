@@ -7,7 +7,7 @@ import Address from "../components/dashboard/dashboardContent/Address";
 import CreateBlog from "../components/dashboard/dashboardContent/CreateBlog";
 import CreateJob from "../components/dashboard/dashboardContent/CreateJob";
 import Education from "../components/dashboard/dashboardContent/Education";
-import Job from "../components/dashboard/dashboardContent/job";
+import Job from "../components/dashboard/dashboardContent/Job";
 import JobReport from "../components/dashboard/dashboardContent/JobReport";
 import JobReports from "../components/dashboard/dashboardContent/JobReports";
 import JobReview from "../components/dashboard/dashboardContent/JobReview";
@@ -19,9 +19,13 @@ import PendingJobs from "../components/dashboard/dashboardContent/my-jobs/Pendin
 import MyJobs from "../components/dashboard/dashboardContent/MyJobs";
 import Overview from "../components/dashboard/dashboardContent/Overview";
 import Profile from "../components/dashboard/dashboardContent/Profile";
+import ReviewWithdraw from "../components/dashboard/dashboardContent/ReviewWithdraw";
 import Transitions from "../components/dashboard/dashboardContent/Transitions";
 import UpdateJob from "../components/dashboard/dashboardContent/UpdateJob";
 import Users from "../components/dashboard/dashboardContent/Users";
+import Withdraw from "../components/dashboard/dashboardContent/Withdraw";
+import WithdrawList from "../components/dashboard/dashboardContent/WithdrawList";
+import Withdraws from "../components/dashboard/dashboardContent/Withdraws";
 import WaitForVerification from "../components/dashboard/WaitForVerification";
 import JobDetails from "../components/jobs/JobDetails";
 import DashboardLayout from "../layouts/DashboardLayout";
@@ -32,9 +36,6 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Blog from "../pages/blog/Blog";
 import Home from "../pages/home/Home";
-import Withdraws from "../components/dashboard/dashboardContent/Withdraws";
-import Withdraw from "../components/dashboard/dashboardContent/Withdraw";
-import WithdrawList from "../components/dashboard/dashboardContent/WithdrawList";
 
 const router = createBrowserRouter([
   {
@@ -128,6 +129,10 @@ const router = createBrowserRouter([
         element: <Users />,
       },
       {
+        path: "review-withdraws",
+        element: <ReviewWithdraw />,
+      },
+      {
         path: "create-job",
         element: <CreateJob />,
       },
@@ -189,7 +194,6 @@ const router = createBrowserRouter([
             path: "withdraws-list",
             element: <WithdrawList />,
           },
-
         ],
       },
       {

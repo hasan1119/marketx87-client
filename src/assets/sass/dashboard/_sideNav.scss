@@ -12,6 +12,12 @@
   flex-direction: column;
   position: relative;
   z-index: 101;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .navLink.logout {
     flex: 1;
@@ -44,30 +50,6 @@
           width: 70%;
         }
       }
-    }
-    .bars {
-      font-size: 25px;
-      color: $primary-500;
-      padding: 5px;
-      position: absolute;
-      z-index: 100;
-      width: 32px;
-      height: 32px;
-      background: #fff;
-      border: 1px solid #eaecf0;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: -16px;
-      top: 50%;
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
-
-    .bars.collapse {
-      right: -35px;
     }
   }
   a {
@@ -114,6 +96,39 @@
     background: $primary-50;
   }
 }
+
+.top_area2{
+
+    position: relative;
+    top: -46%;
+    left: 74px;
+    z-index: 500;
+
+  .bars {
+  font-size: 25px;
+  color: $primary-500;
+  padding: 5px;
+  position: absolute;
+  z-index: 100;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:  left 0.4s ease-in-out;
+}
+
+.bars.collapse {
+  left: 172px !important;
+}}
 
 .side_nav.collapse {
   max-width: 280px;

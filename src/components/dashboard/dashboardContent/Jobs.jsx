@@ -13,7 +13,7 @@ const Jobs = () => {
   }, []);
   return (
     // <div className="ml-2 mt-2 p-5 w-100 rounded" style={{ maxWidth: "1200px" }}>
-    <div className="ml-2 mt-2 p-5 w-100 rounded" >
+    <div className="ml-2 mt-2 p-5 w-100 rounded">
       <h1>Jobs</h1>
       <hr />
       {jobs?.map((job) => {
@@ -55,6 +55,11 @@ const Jobs = () => {
           </div>
         );
       })}
+      {jobs.length === 0 ? (
+        <h4 className="text-danger my-2">No jobs available</h4>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

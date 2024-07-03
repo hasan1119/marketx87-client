@@ -1,66 +1,53 @@
-
+import moment from "moment";
+import { useEffect, useState } from "react";
+import axiosClient from "../../../utils/axios";
 
 const WithdrawList = () => {
-    return (
-        <div className="ml-2 mt-2 p-5 w-100 rounded">
-            {/* <style>{`
-               .uniform-table {
-    width: 100%;
-    table-layout: fixed;
-}
-
-.uniform-table th, .uniform-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-            `}</style> */}
-            <h1 className="">Withdraw List</h1>
-            <div className="table-responsive mt-5">
-                <table className="table table-striped uniform-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Account Number</th>
-                            <th scope="col">Withdraw ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>01-05-2024</td>
-                            <td>500TK</td>
-                            <td>01675440454</td>
-                            <td>#5151561</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>01-05-2024</td>
-                            <td>500TK</td>
-                            <td>01675440454</td>
-                            <td>#5151561</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>01-05-2024</td>
-                            <td>500TK</td>
-                            <td>01675440454</td>
-                            <td>#5151561</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>01-05-2024</td>
-                            <td>500TK</td>
-                            <td>01675440454</td>
-                            <td>#5151561</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    );
+  const [withdraws, setWithdraws] = useState([]);
+  useEffect(() => {
+    axiosClient
+      .get("/getAllWithdraws")
+      .then(({ data }) => {
+        setWithdraws(data);
+      })
+      .catch(console.log);
+  }, []);
+  console.log(withdraws);
+  return (
+    <div className="ml-2 mt-2 p-5 w-100 rounded">
+      <h1 className="">Withdraw List</h1>
+      <div className="table-responsive mt-5">
+        <table className="table table-striped uniform-table">
+          <thead>
+            <tr>
+              <th style={{ width: "80px" }} scope="col">
+                #
+              </th>
+              <th scope="col">Date</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Account</th>
+              <th scope="col">Method</th>
+              <th scope="col">Withdraw ID</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {withdraws.map((withdraw, index) => (
+              <tr key={withdraw._id}>
+                <th scope="row">{index}</th>
+                <td>{moment(withdraw?.createdAt).format("LLLL")}</td>
+                <td>{withdraw?.trans?.amount}TK</td>
+                <td>{withdraw?.trans?.account}</td>
+                <td>{withdraw?.method}</td>
+                <td>#{withdraw._id.slice(0, 6)}</td>
+                <td>{withdraw.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default WithdrawList;

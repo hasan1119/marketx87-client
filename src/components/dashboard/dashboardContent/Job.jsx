@@ -38,21 +38,23 @@ const Job = () => {
       </div>
       <div dangerouslySetInnerHTML={{ __html: job.description }}></div>
       {userInfo.role.includes("Admin") ||
-        job?.records?.map(({ user }) => user)?.includes(userInfo._id) || (
-          <div className="my-2">
-            <h3>Submit task proof: </h3>
-            <JoditEditor
-              value={content}
-              // tabIndex={1}
-              onChange={(newContent) => setContent(newContent)}
-              // config={config}
-              required
-            />
-            <button onClick={submitTask} className="btn btn-primary my-3">
-              Submit Job
-            </button>
-          </div>
-        )}
+      job?.records?.map(({ user }) => user)?.includes(userInfo._id) ? (
+        <h3>You have already submitted</h3>
+      ) : (
+        <div className="my-2">
+          <h3>Submit task proof: </h3>
+          <JoditEditor
+            value={content}
+            // tabIndex={1}
+            onChange={(newContent) => setContent(newContent)}
+            // config={config}
+            required
+          />
+          <button onClick={submitTask} className="btn btn-primary my-3">
+            Submit Job
+          </button>
+        </div>
+      )}
     </div>
   );
 };

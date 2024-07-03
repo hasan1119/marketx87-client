@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BiLogoBlogger } from "react-icons/bi";
 import { BsPersonCircle } from "react-icons/bs";
 import { CiLogout } from "react-icons/ci";
@@ -12,51 +11,27 @@ import {
 import { FaCartShopping } from "react-icons/fa6";
 import { FiUsers } from "react-icons/fi";
 import { ImLocation2 } from "react-icons/im";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoBookSharp } from "react-icons/io5";
 import { MdOutlinePayment, MdOutlinePreview } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 
-const SideNav = () => {
-  const [isOpen, setOpen] = useState(false);
-  const toggle = () => setOpen(!isOpen);
+const SideNav = ({ isOpen }) => {
   const { logout, loading, userInfo } = useContexts();
-  console.log(userInfo.role);
   const studentMenus =
     userInfo && userInfo.role && userInfo.role.includes("Admin")
       ? [
-          // {
-          //   path: "/dashboard/overview",
-          //   name: "Overview",
-          //   icon: <IoBookSharp />,
-          // },
           {
             path: "/dashboard/my-profile",
             name: "My Profile",
             icon: <BsPersonCircle />,
           },
-          // {
-          //   path: "/dashboard/address",
-          //   name: "Address",
-          //   icon: <ImLocation2 />,
-          // },
-          // {
-          //   path: "/dashboard/education",
-          //   name: "Education",
-          //   icon: <FaBook />,
-          // },
           {
             path: "/dashboard/users",
             name: "Users",
             icon: <FiUsers />,
           },
-          // {
-          //   path: "/dashboard/transitions",
-          //   name: "Transitions",
-          //   icon: <FaMoneyBillTransfer />,
-          // },
           {
             path: "/dashboard/create-blog",
             name: "Create Blog",
@@ -75,6 +50,11 @@ const SideNav = () => {
           {
             path: "/dashboard/job-review",
             name: "Job Review",
+            icon: <FaBriefcase />,
+          },
+          {
+            path: "/dashboard/review-withdraws",
+            name: "Review Withdraws",
             icon: <FaBriefcase />,
           },
         ]
@@ -166,10 +146,6 @@ const SideNav = () => {
               )}
             </span>
           </Link>
-        </div>
-
-        <div onClick={toggle} className={isOpen ? "bars" : "bars collapse"}>
-          {isOpen ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>
       </div>
       {menuItems.map((items) => (
