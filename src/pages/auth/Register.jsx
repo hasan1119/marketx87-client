@@ -20,7 +20,7 @@ const Register = () => {
   });
 
   useEffect(() => {
-    setUser({ ...user, referral: refer });
+    setUser({ ...user, referral: refer ? refer : "" });
   }, [refer]);
 
   return (
