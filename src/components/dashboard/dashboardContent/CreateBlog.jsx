@@ -1,19 +1,15 @@
-import JoditEditor from 'jodit-react';
-import React, { useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import axiosClient from '../../../utils/axios';
+import JoditEditor from "jodit-react";
+import { useState } from "react";
+import { Button, Container } from "react-bootstrap";
+import axiosClient from "../../../utils/axios";
 
 const CreateBlog = () => {
   const [blog, setBlog] = useState({
-    blogTitle: '',
-    blogDescription: '',
+    blogTitle: "",
+    blogDescription: "",
   });
 
-  const [content, setContent] = useState('');
-  // text editor configuration
-  const config = {
-    placeholder: 'Blog Description',
-  };
+  const [content, setContent] = useState("");
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -27,17 +23,17 @@ const CreateBlog = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosClient
-      .post('/create-blog', { ...blog, blogDescription: content })
-      .then(({ data }) => {
-        setBlog({ blogTitle: '', blogDescription: '' });
-        setContent('');
+      .post("/create-blog", { ...blog, blogDescription: content })
+      .then(() => {
+        setBlog({ blogTitle: "", blogDescription: "" });
+        setContent("");
       })
       .catch(console.log);
   };
 
   return (
     <Container className="blog">
-      <div className="blog m-5 p-5 shadow">
+      <div className="blog m-2 m-md-5 p-2 p-md-5 shadow">
         <form onSubmit={handleSubmit}>
           <input
             className="form-control mb-4"

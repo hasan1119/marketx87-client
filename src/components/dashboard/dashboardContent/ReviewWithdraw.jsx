@@ -4,13 +4,17 @@ import axiosClient from "../../../utils/axios";
 
 const ReviewWithdraw = () => {
   const [withdraws, setWithdraws] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     axiosClient
       .get("/get-all-withdraws-by-admin")
       .then(({ data }) => {
         setWithdraws(data);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => setLoading(false));
   }, []);
 
   const changeStatus = (e, id) => {
@@ -29,11 +33,23 @@ const ReviewWithdraw = () => {
       .catch(console.log);
   };
 
+  if (loading) {
+    return (
+      <div className="m-3">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className="ml-2 mt-2 p-5 w-100 rounded">
+    <div className="ml-2 mt-2 p-md-5 p-3 w-100 rounded">
       <h1 className="">Withdraw List</h1>
-      <div className="table-responsive mt-5">
-        <table className="table table-striped uniform-table">
+      <div className="table-responsive mt-5 w-100">
+        <table
+          className="table table-striped uniform-table"
+          style={{ minWidth: "1100px" }}
+        >
           <thead>
             <tr>
               <th style={{ width: "80px" }} scope="col">

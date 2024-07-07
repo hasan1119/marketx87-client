@@ -35,9 +35,9 @@ const ActivationNotice = () => {
       <h3>Be a member of marketx87</h3>
       <p>Please pay the membership fee to join us</p>
       <p>
-        You can send us 100 taka to the following bKash/Nagad/rocket account
-        01978177837, and submit the Phone number and Transition Id, We will
-        check your payment and let you know via your registered email
+        আপনি আমাদের নিম্নলিখিত বিকাশ/নগদ/রকেট অ্যাকাউন্ট 01978177837 এ 100 টাকা
+        পাঠিয়ে ফোন নম্বর এবং ট্রানজিশন আইডি জমা দেন, আমরা আপনার পেমেন্ট চেক করব
+        এবং আপনার নিবন্ধিত ইমেলের মাধ্যমে আপনাকে জানাব
       </p>
       <form
         onSubmit={accountActivation}

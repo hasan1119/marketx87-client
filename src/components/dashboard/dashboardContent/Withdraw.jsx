@@ -81,7 +81,7 @@ const Withdraw = () => {
   }
 
   return (
-    <div className="ml-2 mt-2 p-5 w-100 rounded">
+    <div className="ml-2 mt-2 p-md-5 p-2 w-100 rounded">
       <style>{`
                 .custom-radio {
                     display: inline-block;
@@ -333,7 +333,7 @@ const Withdraw = () => {
           </form>
         </div>
 
-        <div className="col-6 d-sm-none d-md-block">
+        <div className="col-6 d-none d-md-block">
           <img src={WithdrawImage} className="img-fluid" alt="" />
         </div>
       </div>

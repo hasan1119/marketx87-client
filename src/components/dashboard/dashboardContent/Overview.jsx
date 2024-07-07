@@ -33,13 +33,14 @@ const Overview = () => {
     );
   }
   return (
-    <div className="m-5">
+    <div className="p-md-5 p-2 accountOverview">
       <div className="row gap-2">
-        <h1 className="">Account Overview</h1>
-        <h2 className="col p-5 shadow text-center bg-success rounded-4 availableBalanceBG">
-          Available Balance: {availableBalance}TK
+        <h1 className="overviewHeader">Account Overview</h1>
+        <h2 className="col p-md-5 p-2 shadow text-center bg-success rounded-4 availableBalanceBG">
+          <span>Available Balance:</span>
+          <span> {availableBalance}TK</span>
         </h2>
-        <h2 className="col p-5 shadow text-center bg-warning rounded-4 pendingBalanceBG">
+        <h2 className="col p-md-5 p-2 shadow text-center bg-warning rounded-4 pendingBalanceBG">
           Pending Balance: {pendingBalance}TK
         </h2>
       </div>

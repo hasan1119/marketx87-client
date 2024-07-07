@@ -7,7 +7,16 @@ import LoadingSpinner from "../common/LoadingSpinner";
 export default function RegisterFrom({ user, setUser, setStep }) {
   const [loading, setLoading] = useState(false);
 
-  const { firstName, lastName, email, password, confirmPassword, terms } = user;
+  const {
+    firstName,
+    lastName,
+    username,
+    referral,
+    email,
+    password,
+    confirmPassword,
+    terms,
+  } = user;
   //errors
   const [error, setError] = useState({
     firstName: "",
@@ -15,17 +24,26 @@ export default function RegisterFrom({ user, setUser, setStep }) {
     email: "",
     password: "",
     confirmPassword: "",
+    username: "",
+    referral: "",
   });
 
   const [isEnabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (firstName && email && password && confirmPassword && terms) {
+    if (
+      firstName &&
+      email &&
+      password &&
+      confirmPassword &&
+      terms &&
+      username
+    ) {
       setEnabled(true);
     } else {
       setEnabled(false);
     }
-  }, [firstName, email, password, confirmPassword, terms]);
+  }, [firstName, email, password, confirmPassword, terms, username]);
 
   // handle input change
   const handleChange = (e) => {
@@ -67,6 +85,7 @@ export default function RegisterFrom({ user, setUser, setStep }) {
               value={firstName}
               name="firstName"
               type="text"
+              required
               placeholder="Enter first name"
             />
             {error.firstName && (
@@ -98,6 +117,7 @@ export default function RegisterFrom({ user, setUser, setStep }) {
           onChange={handleChange}
           type="text"
           value={email}
+          required
           name="email"
           placeholder="Enter email address"
         />
@@ -115,6 +135,7 @@ export default function RegisterFrom({ user, setUser, setStep }) {
               value={password}
               name="password"
               type="text"
+              required
               placeholder="Enter password"
             />
             {error.password && (
@@ -130,6 +151,7 @@ export default function RegisterFrom({ user, setUser, setStep }) {
               onChange={handleChange}
               name="confirmPassword"
               value={confirmPassword}
+              required
               type="text"
               placeholder="Confirm password"
             />
@@ -137,6 +159,40 @@ export default function RegisterFrom({ user, setUser, setStep }) {
               <Form.Text className="text-danger">
                 {error.confirmPassword}
               </Form.Text>
+            )}
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
+          <Form.Group className="mb-3">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              value={username}
+              name="username"
+              required
+              type="text"
+              placeholder="Enter username"
+            />
+            {error.username && (
+              <Form.Text className="text-danger">{error.username}</Form.Text>
+            )}
+          </Form.Group>
+        </Col>
+
+        <Col md={6}>
+          <Form.Group className="mb-3">
+            <Form.Label>Refer Code</Form.Label>
+            <Form.Control
+              onChange={handleChange}
+              name="referral"
+              value={referral}
+              type="text"
+              placeholder="Enter referral"
+            />
+            {error.referral && (
+              <Form.Text className="text-danger">{error.referral}</Form.Text>
             )}
           </Form.Group>
         </Col>

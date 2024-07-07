@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import OTPForm from "../../components/auth/OTPForm";
 import RegisterFrom from "../../components/auth/RegisterForm";
 const Register = () => {
   const [step, setStep] = useState("EMAIL");
+  const search = useLocation().search;
+  const refer = new URLSearchParams(search).get("refer");
   // User state
   const [user, setUser] = useState({
     firstName: "",
@@ -12,8 +14,14 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    username: "",
+    referral: "",
     OTP: "",
   });
+
+  useEffect(() => {
+    setUser({ ...user, referral: refer });
+  }, [refer]);
 
   return (
     <div className="auth_container d-flex align-items-center justify-content-center">

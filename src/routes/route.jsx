@@ -19,6 +19,7 @@ import PendingJobs from "../components/dashboard/dashboardContent/my-jobs/Pendin
 import MyJobs from "../components/dashboard/dashboardContent/MyJobs";
 import Overview from "../components/dashboard/dashboardContent/Overview";
 import Profile from "../components/dashboard/dashboardContent/Profile";
+import Referral from "../components/dashboard/dashboardContent/Referral";
 import ReviewWithdraw from "../components/dashboard/dashboardContent/ReviewWithdraw";
 import Transitions from "../components/dashboard/dashboardContent/Transitions";
 import UpdateJob from "../components/dashboard/dashboardContent/UpdateJob";
@@ -173,7 +174,7 @@ const router = createBrowserRouter([
             element: <AvailableJobs />,
           },
           {
-            path: "awaiting",
+            path: "reviewing",
             element: <PendingJobs />,
           },
           {
@@ -199,6 +200,10 @@ const router = createBrowserRouter([
       {
         path: "my-wallet",
         element: <ComingSoon />,
+      },
+      {
+        path: "referral",
+        element: <Referral />,
       },
       {
         path: "lottery",

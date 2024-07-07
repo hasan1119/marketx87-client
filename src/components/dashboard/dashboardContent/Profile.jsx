@@ -172,7 +172,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile p-5 m-5 mx-auto">
+    <div className="profile p-md-5  p-2 m-2 mx-md-auto">
       <div className="d-flex justify-content-between py-3 mb-3">
         <h3>Profile</h3>
         <button
@@ -231,7 +231,13 @@ const Profile = () => {
                     <label htmlFor="" className="form-label">
                       <strong>Email:</strong>
                     </label>
-                    <span className="py-2 px-2 ">{userInfo.email}</span>
+                    <a
+                      className="py-2 px-2"
+                      style={{ wordWrap: "break-word" }}
+                      href={`mailto:${userInfo.email}`}
+                    >
+                      {userInfo.email}
+                    </a>
                   </div>
                 </div>
               </div>

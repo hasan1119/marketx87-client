@@ -1,18 +1,26 @@
 import { BiLogoBlogger } from "react-icons/bi";
 import { BsPersonCircle } from "react-icons/bs";
 import { CiLogout } from "react-icons/ci";
+import { FaMoneyCheck } from "react-icons/fa";
+
 import {
   FaBell,
   FaBook,
   FaBriefcase,
   FaRandom,
+  FaUserFriends,
   FaWallet,
 } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { FiUsers } from "react-icons/fi";
 import { ImLocation2 } from "react-icons/im";
 import { IoBookSharp } from "react-icons/io5";
-import { MdOutlinePayment, MdOutlinePreview } from "react-icons/md";
+
+import {
+  MdOutlinePayment,
+  MdOutlinePreview,
+  MdOutlineReviews,
+} from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
@@ -50,12 +58,12 @@ const SideNav = ({ isOpen }) => {
           {
             path: "/dashboard/job-review",
             name: "Job Review",
-            icon: <FaBriefcase />,
+            icon: <MdOutlineReviews />,
           },
           {
             path: "/dashboard/review-withdraws",
             name: "Review Withdraws",
-            icon: <FaBriefcase />,
+            icon: <FaMoneyCheck />,
           },
         ]
       : [
@@ -88,6 +96,11 @@ const SideNav = ({ isOpen }) => {
             path: "/dashboard/withdraws/withdraw",
             name: "Withdraws",
             icon: <RiBankCardFill />,
+          },
+          {
+            path: "/dashboard/referral",
+            name: "Referral",
+            icon: <FaUserFriends />,
           },
           {
             path: "/dashboard/my-wallet",

@@ -5,8 +5,10 @@ import axiosClient from "../../../utils/axios";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axiosClient
       .get("/admin/users")
       .then(({ data }) => {
@@ -14,7 +16,8 @@ export default function Users() {
       })
       .catch(({ responsive }) => {
         console.log(responsive);
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const changeStatus = (e, id) => {
@@ -22,6 +25,7 @@ export default function Users() {
     axiosClient
       .put("/admin/change-user-status", { status, userId: id })
       .then(({ data }) => {
+        console.log(data);
         const newUsers = users.map((user) => {
           if (user._id === data._id) return data;
           return user;
@@ -33,11 +37,15 @@ export default function Users() {
       });
   };
 
-  console.log(
-    users[0]?.transitions?.find(
-      (transition) => transition.type === "Activation"
-    )?.transition.account
-  );
+  if (loading) {
+    return (
+      <div className="m-3">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="users m-5 mx-auto container">
@@ -130,7 +138,7 @@ export default function Users() {
                     className="form-control"
                   >
                     <option value="Pending">Pending</option>
-                    <option value="Awaiting">Awaiting</option>
+                    <option value="Reviewing">Reviewing</option>
                     <option value="Active">Active</option>
                     <option value="Suspended">Suspended</option>
                     <option value="Blocked">Blocked</option>

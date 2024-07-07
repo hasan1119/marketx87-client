@@ -5,12 +5,29 @@ import axiosClient from "../../../utils/axios";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    axiosClient.get("/jobs").then(({ data }) => {
-      console.log(data);
-      setJobs(data);
-    });
+    setLoading(true);
+    axiosClient
+      .get("/jobs")
+      .then(({ data }) => {
+        console.log(data);
+        setJobs(data);
+      })
+      .catch(console.log)
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return (
+      <div className="m-3">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
     // <div className="ml-2 mt-2 p-5 w-100 rounded" style={{ maxWidth: "1200px" }}>
     <div className="ml-2 mt-2 p-5 w-100 rounded">
@@ -50,7 +67,8 @@ const Jobs = () => {
             </div>
             <div className="d-flex column-gap-3">
               <span>Duration: {job.time || "N/A"}</span>
-              <span>Limit: {job.limit || "N/A"}</span>
+              <span>Limit: {job.limit + "Days" || "N/A"}</span>
+              <span>Budget: {job.budget + "TK" || "N/A"}</span>
             </div>
           </div>
         );

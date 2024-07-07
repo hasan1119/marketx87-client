@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import { AiFillEdit } from 'react-icons/ai';
-import useContexts from '../../../hooks/useContexts';
-import axiosClient from '../../../utils/axios';
+import { useEffect, useState } from "react";
+import { AiFillEdit } from "react-icons/ai";
+import useContexts from "../../../hooks/useContexts";
+import axiosClient from "../../../utils/axios";
 
 function Education() {
   const [isEditing, setIsEditing] = useState(false);
   const [educationInfo, setEducationInfo] = useState({
-    educationLevel: '',
-    examTitle: '',
-    institutionName: '',
+    educationLevel: "",
+    examTitle: "",
+    institutionName: "",
     currentlyStudying: false,
-    passingYear: '',
-    approximatePassingYear: '',
-    currentYear: '',
+    passingYear: "",
+    approximatePassingYear: "",
+    currentYear: "",
   });
 
   const { userInfo, setUserInfo } = useContexts();
@@ -32,7 +32,7 @@ function Education() {
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
     setEducationInfo((prevState) => {
-      if (type === 'checkbox') {
+      if (type === "checkbox") {
         return {
           ...prevState,
           [name]: checked, // Update the state with the checkbox's checked status
@@ -51,7 +51,7 @@ function Education() {
     console.log(educationInfo);
     e.preventDefault();
     axiosClient
-      .put('/add-education', educationInfo)
+      .put("/add-education", educationInfo)
       .then(({ data }) => {
         console.log(data);
         setUserInfo(data);
@@ -62,7 +62,7 @@ function Education() {
 
   return (
     <div className="education p-5 m-5 mx-auto">
-      <div className="d-flex justify-content-between py-3 mb-3">
+      <div className="d-flex justify-content-between align-items-start flex-md-row flex-column py-3 mb-3">
         <h3>Education</h3>
         <button
           className="btn btn-primary d-flex align-items-center"
@@ -140,7 +140,7 @@ function Education() {
                 className="mb-2 d-block form-control"
                 name="passingYear"
                 step="1"
-                value={educationInfo.passingYear || 'N/A'}
+                value={educationInfo.passingYear || "N/A"}
                 onChange={handleInputChange}
               />
             </div>
@@ -156,7 +156,7 @@ function Education() {
                   className="mb-2 d-block form-control"
                   name="approximatePassingYear"
                   step="1"
-                  value={educationInfo.approximatePassingYear || 'N/A'}
+                  value={educationInfo.approximatePassingYear || "N/A"}
                   onChange={handleInputChange}
                 />
               </div>
@@ -184,12 +184,17 @@ function Education() {
             </>
           )}
 
-          <div className="mt-4">
-            <button type="submit" className="btn btn-primary px-5">
+          <div className="mt-4 row-gap-2 d-md-block d-flex flex-column">
+            <button
+              style={{ width: "135px" }}
+              type="submit"
+              className="btn btn-primary px-5"
+            >
               Save
             </button>
             <button
-              className="btn btn-outline-secondary px-5 mx-3"
+              style={{ width: "135px" }}
+              className="btn btn-outline-secondary px-5 mx-md-3"
               onClick={toggleEdit}
             >
               Cancel
@@ -203,7 +208,7 @@ function Education() {
               <strong>Education level</strong>
             </label>
             <span className="py-2 px-3 d-block">
-              {educationInfo.educationLevel || 'N/A'}
+              {educationInfo.educationLevel || "N/A"}
             </span>
           </div>
           <div className="col-12 mb-3">
@@ -211,7 +216,7 @@ function Education() {
               <strong>Exam/Degree Title</strong>
             </label>
             <span className="py-2 px-3 d-block">
-              {educationInfo.examTitle || 'N/A'}
+              {educationInfo.examTitle || "N/A"}
             </span>
           </div>
 
@@ -220,7 +225,7 @@ function Education() {
               <strong>Institution name</strong>
             </label>
             <span className="py-2 px-3 d-block">
-              {educationInfo.institutionName || 'N/A'}
+              {educationInfo.institutionName || "N/A"}
             </span>
           </div>
           {!educationInfo?.currentlyStudying ? (
@@ -229,7 +234,7 @@ function Education() {
                 <strong>Passing year</strong>
               </label>
               <span className="py-2 px-3 d-block">
-                {educationInfo.passingYear || 'N/A'}
+                {educationInfo.passingYear || "N/A"}
               </span>
             </div>
           ) : (
@@ -239,7 +244,7 @@ function Education() {
                   <strong>Approximate Passing year</strong>
                 </label>
                 <span className="py-2 px-3 d-block">
-                  {educationInfo.approximatePassingYear || 'N/A'}
+                  {educationInfo.approximatePassingYear || "N/A"}
                 </span>
               </div>
               <div className="col-lg-6 mb-3">
@@ -247,7 +252,7 @@ function Education() {
                   <strong>Current year</strong>
                 </label>
                 <span className="py-2 px-3 d-block">
-                  {educationInfo.currentYear || 'N/A'}
+                  {educationInfo.currentYear || "N/A"}
                 </span>
               </div>
             </>

@@ -80,3 +80,23 @@
     white-space: unset;
   }
 }
+
+@media screen and (max-width:768px) {
+  .tab_header {
+    font-size: 18px;
+    margin-left: 30px !important;
+    font-weight: 600;
+  }
+  .dashboard_top_right {
+    padding-right: 15px;
+  }
+  .accountOverview{
+    padding: 25px !important;
+    .overviewHeader{
+      font-size: 25px;
+    }
+  }
+  .side_nav{
+    padding: 15px;
+  }
+}

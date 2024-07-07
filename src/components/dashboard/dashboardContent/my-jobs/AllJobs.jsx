@@ -5,9 +5,15 @@ import useContexts from "../../../../hooks/useContexts";
 import axiosClient from "../../../../utils/axios";
 
 const AllJobs = () => {
+  const [innerWidth, setInnerWidth] = useState(0);
   const { userInfo } = useContexts();
   const [loading, setLoading] = useState(false);
   const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    setInnerWidth(window.innerWidth);
+  }, [window.innerWidth]);
+
   useEffect(() => {
     setLoading(true);
     axiosClient
@@ -44,18 +50,19 @@ const AllJobs = () => {
               boxShadow: "inset 2px 0 0 #6a2af5",
               border: "1px solid #f0f2f5",
               borderRadius: "0.125rem",
-              padding: "1.25rem 2rem",
+              padding: innerWidth > 576 ? "1.25rem 2rem" : "20px",
               marginBottom: "15px",
             }}
           >
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-md-row flex-column">
               <Link
                 to={`/dashboard/jobs/${job._id}`}
                 style={{ fontSize: "15.4px" }}
+                className="text-capitalize mb-2"
               >
                 {job.title}
               </Link>
-              <div className="">
+              <div className="d-flex">
                 {record?._id ? (
                   <button
                     type="button"
@@ -63,15 +70,20 @@ const AllJobs = () => {
                   >
                     {record.status}
                   </button>
+                ) : job.status === "completed" ? (
+                  <button
+                    type="button"
+                    className="btn btn-success text-capitalize"
+                  >
+                    {job.status}
+                  </button>
                 ) : (
-                  <>
-                    <button
-                      type="button"
-                      className="btn btn-primary text-capitalize"
-                    >
-                      Open
-                    </button>
-                  </>
+                  <button
+                    type="button"
+                    className="btn btn-primary text-capitalize"
+                  >
+                    Open
+                  </button>
                 )}
 
                 <Link to={`/dashboard/jobs/${job._id}`} className="btn">
@@ -80,14 +92,20 @@ const AllJobs = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col">
-                <div className="d-flex column-gap-3">
-                  <span>Deadline: {job.time + "Days" || "N/A"}</span>
-                  <span>Target: {job.limit || "N/A"}</span>
-                  <span>Budget: {job.budget + "TK" || "N/A"}</span>
+              <div className="col-md-6 col-12">
+                <div className="d-flex flex-column flex-md-row column-gap-3">
+                  <span className="btn text-start px-0">
+                    Deadline: {job.time + "Days" || "N/A"}
+                  </span>
+                  <span className="btn text-start px-0">
+                    Target: {job.limit || "N/A"}
+                  </span>
+                  <span className="btn text-start px-0">
+                    Budget: {job.budget + "TK" || "N/A"}
+                  </span>
                 </div>
               </div>
-              <div className="col d-flex align-items-center gap-2">
+              <div className="col-md-6 col-12 d-flex align-items-center gap-2">
                 <span>
                   {job?.records?.length}/{job.limit}
                 </span>

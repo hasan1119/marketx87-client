@@ -13,20 +13,20 @@ const DashboardLayout = () => {
   if (userInfo.status === "Pending") {
     return <Navigate to="/activation-notice" />;
   }
-  if (userInfo.status === "Awaiting") {
+  if (userInfo.status === "Reviewing") {
     return <Navigate to="/wait-for-verification" />;
   }
   return (
     <div className="dashboard">
       <div className="dashboard_area">
-        <div className="top_area2">
-          <div onClick={toggle} className={isOpen ? "bars" : "bars collapse"}>
-            {isOpen ? <IoIosArrowForward /> : <IoIosArrowBack />}
-          </div>
-        </div>
         <SideNav isOpen={isOpen} setOpen={setOpen} toggle={toggle} />
 
         <div className="right_bar">
+          <div className="top_area2">
+            <div onClick={toggle} className={isOpen ? "bars" : "bars collapse"}>
+              {isOpen ? <IoIosArrowForward /> : <IoIosArrowBack />}
+            </div>
+          </div>
           <TopNav />
           <Outlet />
         </div>

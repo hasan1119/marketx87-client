@@ -16,7 +16,7 @@ const Footer = () => {
                 src="https://jobpilot.templatecookie.com/frontend/assets/images/logo/logowhite.png"
                 alt=""
               /> */}
-              <h2>ShopX87</h2>
+              <h2>MarketX87</h2>
             </Link>
             <p className="">
               Discover tailored opportunities for job seekers and top talent for

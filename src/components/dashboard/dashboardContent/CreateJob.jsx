@@ -19,10 +19,6 @@ const CreateJob = () => {
   const [job, setJob] = useState(jobProto);
 
   const [content, setContent] = useState("");
-  // text editor configuration
-  // const config = {
-  //   placeholder: "Job Description",
-  // };
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -48,7 +44,7 @@ const CreateJob = () => {
 
   return (
     <Container className="blog">
-      <div className="blog m-5 p-5 shadow">
+      <div className="blog m-md-5 m-2 p-md-5 p-2 shadow">
         <form onSubmit={handleSubmit}>
           <input
             className="form-control mb-4"

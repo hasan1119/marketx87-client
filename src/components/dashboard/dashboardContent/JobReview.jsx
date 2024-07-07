@@ -3,11 +3,15 @@ import axiosClient from "../../../utils/axios";
 
 const JobReview = () => {
   const [records, setRecords] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     axiosClient
       .get("/all-records")
       .then(({ data }) => setRecords(data))
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => setLoading(false));
   }, []);
   console.log(records);
 
@@ -27,6 +31,17 @@ const JobReview = () => {
       })
       .catch(console.log);
   };
+
+  if (loading) {
+    return (
+      <div className="m-3">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="users py-3 m-5 mx-auto container">
       <div className="row d-flex justify-content-between align-items-center  mb-2 ">
@@ -40,9 +55,11 @@ const JobReview = () => {
                 <div className="d-flex flex-column align-items-start">
                   <div style={{ width: "100%" }}>
                     <div className="d-flex row">
-                      <h5 className="mb-2 col-10">{record?.job?.title}</h5>
+                      <h5 className="mb-2 col-10 text-capitalize">
+                        {record?.job?.title}
+                      </h5>
                       <div
-                        className="col-2"
+                        className="col-2 mb-2"
                         style={{
                           width: "130px",
                           display: "flex",
@@ -55,7 +72,7 @@ const JobReview = () => {
                             onChange={(e) => changeStatus(e, record._id)}
                             className="form form-control"
                           >
-                            <option value="Awaiting">Awaiting</option>
+                            <option value="Reviewing">Reviewing</option>
                             <option value="Approved">Approved</option>
                             <option value="Rejected">Rejected</option>
                           </select>
@@ -86,10 +103,10 @@ const JobReview = () => {
                       ></button>
                     </div>
                     <div className="row">
-                      <b className="fs-6 col-2">
+                      <b className="fs-6 col-12">
                         User: {record.user.firstName + record.user.lastName}
                       </b>
-                      <b className="fs-6 col-2">
+                      <b className="fs-6 col-12">
                         Budget: {record.job.budget}BDT
                       </b>
                     </div>
