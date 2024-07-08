@@ -36,6 +36,13 @@ const Header = () => {
               >
                 Blogs
               </Nav.Link>
+              <Nav.Link
+                as={NavLink}
+                to="/helpline"
+                className="nav_item nav_menu_item "
+              >
+                Helpline
+              </Nav.Link>
 
               {userInfo === null && (
                 <Nav.Link

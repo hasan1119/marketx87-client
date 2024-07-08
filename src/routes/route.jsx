@@ -36,6 +36,7 @@ import Forgot from "../pages/auth/Forgot";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Blog from "../pages/blog/Blog";
+import Helpline from "../pages/Helpline";
 import Home from "../pages/home/Home";
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "helpline",
+        element: <Helpline />,
       },
       {
         path: "activation-notice",
