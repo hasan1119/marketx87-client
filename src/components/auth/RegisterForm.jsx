@@ -63,11 +63,14 @@ export default function RegisterFrom({ user, setUser, setStep }) {
     axiosClient
       .post("/register", user)
       .then(({ data }) => {
+        console.log(data);
         if (data._id) {
-          setStep("OTP");
+          // setStep("OTP");
         }
       })
       .catch(({ response }) => {
+        console.log(response);
+
         const { data } = response;
         setError(data);
       })
