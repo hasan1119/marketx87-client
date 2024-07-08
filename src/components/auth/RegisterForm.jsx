@@ -65,7 +65,7 @@ export default function RegisterFrom({ user, setUser, setStep }) {
       .then(({ data }) => {
         console.log(data);
         if (data._id) {
-          // setStep("OTP");
+          setStep("OTP");
         }
       })
       .catch(({ response }) => {

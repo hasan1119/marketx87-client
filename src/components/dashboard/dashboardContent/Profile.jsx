@@ -202,7 +202,7 @@ const Profile = () => {
                   />
                 </div>
                 <div className="row col-lg-6">
-                  <div className="col-12 mb-3">
+                  <div className="col-12 mb-2">
                     <label htmlFor="" className="mb-2 ">
                       <strong>Name:</strong>
                     </label>
@@ -210,7 +210,7 @@ const Profile = () => {
                     <span className="py-2 ">{userInfo.lastName}</span>
                   </div>
 
-                  <div className="col-md-12 mb-3">
+                  <div className="col-md-12 mb-2">
                     <label htmlFor="" className="form-label">
                       <strong>Gender:</strong>
                     </label>
@@ -219,7 +219,7 @@ const Profile = () => {
                     </span>
                   </div>
 
-                  <div className="col-md-12 mb-3">
+                  <div className="col-md-12 mb-2">
                     <label htmlFor="" className="form-label">
                       <strong>Phone Number:</strong>
                     </label>
@@ -227,7 +227,15 @@ const Profile = () => {
                       {userInfo.phone || "N/A"}
                     </span>
                   </div>
-                  <div className="col-md-12 mb-3">
+                  <div className="col-md-12 mb-2">
+                    <label htmlFor="" className="form-label">
+                      <strong>Username:</strong>
+                    </label>
+                    <span className="py-2 px-2 ">
+                      {userInfo.username || "N/A"}
+                    </span>
+                  </div>
+                  <div className="col-md-12 mb-2">
                     <label htmlFor="" className="form-label">
                       <strong>Email:</strong>
                     </label>
