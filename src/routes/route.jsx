@@ -12,6 +12,7 @@ import JobReport from "../components/dashboard/dashboardContent/JobReport";
 import JobReports from "../components/dashboard/dashboardContent/JobReports";
 import JobReview from "../components/dashboard/dashboardContent/JobReview";
 import Jobs from "../components/dashboard/dashboardContent/Jobs";
+import Lottery from "../components/dashboard/dashboardContent/Lottery";
 import AllJobs from "../components/dashboard/dashboardContent/my-jobs/AllJobs";
 import AvailableJobs from "../components/dashboard/dashboardContent/my-jobs/AvailableJobs";
 import CompletedJobs from "../components/dashboard/dashboardContent/my-jobs/CompletedJobs";
@@ -212,7 +213,7 @@ const router = createBrowserRouter([
       },
       {
         path: "lottery",
-        element: <ComingSoon />,
+        element: <Lottery />,
       },
       {
         path: "review-and-earn",

@@ -36,7 +36,7 @@ const AllJobs = () => {
   }
 
   return (
-    <div className="ml-2 mt-2 p-1 w-100 rounded allJobs">
+    <div className="ml-2 mt-2 mt-md-4 dashboard_container p-1 w-100 rounded allJobs">
       {jobs?.map((job) => {
         const record = job?.records
           ?.map(({ record }) => record)

@@ -172,7 +172,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile p-md-5  p-2 m-2 mx-md-auto">
+    <div className="profile p-md-5  p-2 m-2 mt-md-4 mx-md-auto">
       <div className="d-flex justify-content-between py-3 mb-3">
         <h3>Profile</h3>
         <button

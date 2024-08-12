@@ -33,7 +33,7 @@ const Overview = () => {
     );
   }
   return (
-    <div className="p-md-5 p-2 accountOverview">
+    <div className="p-md-5 dashboard_container p-2 accountOverview">
       <div className="row gap-2">
         <h1 className="overviewHeader">Account Overview</h1>
         <h2 className="col p-md-5 p-2 shadow text-center bg-success rounded-4 availableBalanceBG">
